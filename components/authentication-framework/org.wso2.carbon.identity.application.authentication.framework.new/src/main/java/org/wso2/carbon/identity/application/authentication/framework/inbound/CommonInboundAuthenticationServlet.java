@@ -102,6 +102,14 @@ public class CommonInboundAuthenticationServlet extends HttpServlet {
                 } catch (IOException ex) {
                     throw new AuthenticationFrameworkRuntimeException("Error occurred while redirecting response", ex);
                 }
+            } else if (inboundAuthenticationResponse.getStatusCode()
+                    == InboundAuthenticationConstants.StatusCode.SUCCESS) {
+                //Send request to Framework
+//                try {
+//                    //Send request to Framework
+//                } catch (IOException ex) {
+//                    throw new AuthenticationFrameworkRuntimeException("Error occurred sending request to framework", ex);
+//                }
             }
         } else if (request.getPathInfo().contains(InboundAuthenticationConstants.HTTP_PATH_PARAM_RESPONSE)) {
             InboundAuthenticationResponse result = doProcessResponse(authenticationRequest);

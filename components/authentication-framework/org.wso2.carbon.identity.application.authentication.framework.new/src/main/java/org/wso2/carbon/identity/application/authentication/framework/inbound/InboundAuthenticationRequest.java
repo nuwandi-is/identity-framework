@@ -62,4 +62,8 @@ public class InboundAuthenticationRequest implements Serializable {
         this.parameters = parameters;
     }
 
+    public String[] getParameter(String key){
+        return parameters.get(key);
+    }
+
 }
