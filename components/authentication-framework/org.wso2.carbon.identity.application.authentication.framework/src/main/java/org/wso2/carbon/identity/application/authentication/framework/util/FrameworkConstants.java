@@ -64,7 +64,7 @@ public abstract class FrameworkConstants {
     public static final String UPDATED_TIMESTAMP = "UpdatedTimestamp";
 
     public static final String POST_AUTHENTICATION_EXTENSION_COMPLETED = "postAuthenticationExtensionCompleted";
-    public static final String POST_AUTHENTICATION_REDIRECTION_TRIGGERED = "postAuthenticationRedirectionTriggered";
+    public static final String MISSING_CLAIM_REQUEST_HANDLED = "missingClaimRequestHandled";
     public static final String MISSING_CLAIMS = "missingClaims";
     public static final String MAPPED_ATTRIBUTES = "MappedAttributes";
 

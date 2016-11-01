@@ -124,17 +124,17 @@ public class DefaultAuthenticationRequestHandler implements AuthenticationReques
             FrameworkUtils.getStepBasedSequenceHandler().handle(request, response, context);
         }
 
-        if (context.getSequenceConfig().isCompleted() && !isPostAuthenticationExtensionCompleted(context)) {
+        if (context.getSequenceConfig().isCompleted() && !context.isPostAuthenticationCompleted()) {
             // call post authentication handler
             FrameworkUtils.getPostAuthenticationHandler().handle(request, response, context);
         }
 
         // if flow completed, send response back
-        if (isPostAuthenticationExtensionCompleted(context)) {
+        if (context.isPostAuthenticationCompleted()) {
             //Add the context to the cache to be usable by the authorization handler
-            if (context.getSequenceConfig().getApplicationConfig().isEnableAuthorization()) {
-                handleAuthorization(request, response, context);
-            }
+//            if (context.getSequenceConfig().getApplicationConfig().isEnableAuthorization()) {
+//                handleAuthorization(request, response, context);
+//            }
             concludeFlow(request, response, context);
         } else { // redirecting outside
             FrameworkUtils.addAuthenticationContextToCache(context.getContextIdentifier(), context);
